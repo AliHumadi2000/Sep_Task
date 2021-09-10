@@ -1,0 +1,27 @@
+#include<stdio.h>
+
+int main()
+{
+    int age;
+    char name[20];
+    char country[20];
+    FILE *fy;
+    fy=fopen("myFile.txt","w");
+    if(fy==NULL)
+    {
+        printf("File not exist..\n");
+    }
+    printf("Enter your name ,age and country...\n");
+    scanf("%s%d%s",name,&age,country);
+    fprintf(fy,"%s %d %s",name,age,country);
+    fclose(fy);
+    int a;
+    char n[20];
+    char c[20];
+   fy=fopen("myFile.txt","r");
+   while(fscanf(fy,"%s%d%s",n,&a,c)!=EOF)
+   {
+       printf("%s %d %s",n,a,c);
+   }
+
+}
