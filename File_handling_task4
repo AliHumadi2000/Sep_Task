@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<stdlib.h>
+/*Write a program using file handling and array:
+type of array int user should enter the size of array
+user Enter the values of the array
+store them in file in array format
+close the file*/
+int main()
+{
+    FILE *file;//declare a file pointer
+    int n,i=0;
+    file=fopen("file_handling_task4.txt","w");//create and open a file
+    if(file==NULL)//check if the file does not exit
+    {
+        printf("File  has not created ...");
+    }
+    else
+        {
+        printf("Enter the size of array : ");
+        scanf("%d",&n);
+        int arra[n];
+        printf("Enter %d values : ");
+    for(;i<n;i++)
+    {
+        scanf("%d",&arra[i]);
+    }
+    fwrite(arra,sizeof(int),n,file);
+    }
+    fclose(file);
+    int arr[n],j=0;
+   file=fopen("file_handling_task4.txt","r");
+   fread(arr,sizeof(int),n,file)!=n;
+   for(;j<n;j++)
+   {
+       printf("%d",arr[j]);
+   }
+}
