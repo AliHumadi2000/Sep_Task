@@ -1,0 +1,29 @@
+#include<stdio.h>
+int main()
+{
+    FILE *file,*f;
+    char ch;
+    file=fopen("ass_5.txt","w");
+    if(file==NULL)
+    {
+        printf("File does not exit");
+    }
+    printf("Enter the string \n");
+    while((ch=getche())!='\r') {
+		fputc(ch,file);
+	}
+
+    fclose(file);
+     f=fopen("ass_5.txt","r");
+     int cont=0;
+     char c;
+     while((c=fgetc(f))!=EOF)
+     {
+          cont++;
+
+     }
+     fclose(f);
+     printf("number of char in file is :%d",cont);
+
+
+}
