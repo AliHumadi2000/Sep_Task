@@ -1,0 +1,73 @@
+#include<iostream>
+#include<fstream>
+/*
+write a program using file handling ,array and function:
+create file ,use a function name it insert ,the function will take
+the size and values from the user and store them in the file
+use anthoer function name it print,the print function will read the
+values from the user and sort them in ascending order after sorting print them*/
+using namespace std;
+void insert_elment(int s);
+void sort_print(int s);
+int main()
+{
+    cout<<"Enter the size of the array"<<endl;
+    int n;
+    cin>>n;
+    insert_elment(n);
+    sort_print(n);
+
+}
+void insert_elment(int s)
+{
+     ofstream file;
+    file.open("Task6_file.txt",ios::in);
+    if(!file.is_open())
+    {
+        cout<<"file not created"<<endl;
+    }
+    int arr[s];
+    cout<<"Enter "<<s <<" values"<<endl;
+    for(int i=0;i<s;i++)
+    {
+        cin>>arr[i];
+        file<<arr[i]<<" ";
+    }
+file.close();
+}
+void sort_print(int s)
+{
+    int arra[s],i=0,x;
+    ifstream file;
+    file.open("Task6_file.txt",ios::out);
+    if(!file.is_open())
+    {
+        cout<<"File not created"<<endl;
+    }
+    else
+    {
+        for (i = 0; i < s; i++)
+        {
+            file >> arra[i];
+                    }
+    }
+    int temp;
+    for(int i=0;i<s;i++)
+    {
+
+        for(int j=0;j<s-i-1;j++)
+        {
+           if(arra[j]>arra[j+1])
+           {
+            temp=arra[j];
+            arra[j]=arra[j+1];
+            arra[j+1]=temp;
+           }
+        }
+    }
+    for(int i=0;i<s;i++)
+    {
+        cout<<arra[i]<<" ";
+    }
+
+}
