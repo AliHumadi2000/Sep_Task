@@ -1,0 +1,29 @@
+#include<iostream>
+#include<fstream>
+#include<cstring>
+using namespace std;
+//copy file to another file in c++
+int main()
+{
+    string str,str1;
+    fstream file;
+    ofstream file1;
+    //create file one and take the input from the user
+    file.open("assignment8.txt",ios::trunc | ios::out | ios::in);
+    if(!file.is_open())
+    {
+        cout<<"File not created "<<endl;
+
+    }
+    cout<<"Enter an string"<<endl;
+    getline(cin,str);
+    file<<str;//write the input to the file
+    //
+    file1.open("assignment8_1.txt");
+    file.seekg(0, ios::beg);
+    while(getline(file,str1))
+    {
+
+        file1<<str1<<endl;
+    }
+}
