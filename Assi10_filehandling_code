@@ -1,0 +1,30 @@
+#include<iostream>
+#include<cstring>
+#include<fstream>
+//program to count number of char and words in the file    
+using namespace std;
+int main()
+{
+    ifstream file;
+    file.open("G:/ali/temp/ali/assi9,txt",ios::in);
+    if(!file.is_open())
+    {
+        cout<<"File not exit";
+    }
+    else
+    {
+
+    char ch;
+    int i=0,j=0;
+   while(!file.eof())
+   {
+       file.get(ch);
+       if(ch==' ')
+       {
+           j++;
+       }
+i++;
+   }
+   cout<<"\nnumber of char in file is "<<i<<"\t number of word in the file is "<<j+1;
+    }
+}
