@@ -1,0 +1,29 @@
+#include<iostream>
+#include<cstring>
+#include<fstream>
+//read the contents of the file and store them in array
+#define s 20
+using namespace std;
+int main()
+{
+    ifstream file;
+    file.open("G:/ali/temp/ali/assi9,txt",ios::in);
+    if(!file.is_open())
+    {
+        cout<<"File not exit";
+    }
+    else
+    {
+
+    string line[s];
+    int i=0,c;
+   while(getline(file,line[i]))
+   {
+
+       cout<<line[i]<<endl;
+       i++;
+
+   }
+ 
+    }
+}
