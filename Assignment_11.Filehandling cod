@@ -1,0 +1,60 @@
+/*Write a program that take user name and password from 5 users
+store them in text file 
+open the file and ask the user to enter their user name and password 
+check if the user details already in the text file 
+print the result if the user detail in the file or not */
+
+
+
+
+#include<iostream>
+#include<fstream>
+#include<cstring>
+using namespace std;
+
+int main()
+{
+    ofstream file;
+    file.open("Ali.txt");
+    char name[20];
+     int pass;
+    if(!file.is_open())
+    {
+        cout<<"file not exit"<<endl;
+    }
+    else
+    {
+
+       cout<<"Enter how many user"<<endl;
+       int n;
+       cin>>n;
+        for(int i=0;i<n;i++)
+    {
+        cin>>name>>pass;
+        file<<name<<" "<<pass<<endl;
+    }
+    }
+    file.close();
+    ifstream f;
+    string nam,n;
+    int pas,p,ch=0;
+    f.open("Ali.txt");
+    cout<<"Enter name and password"<<endl;
+     cin>>n>>p;
+    while(f>>nam>>pas)
+    {
+       if(n==nam&&p==pas)
+       {
+            ch=1;
+        cout<<"folund "<<nam<<" "<<pas<<endl;
+       }
+
+    }
+    if(ch==0)
+    {
+        cout<<"not found"<<endl;
+    }
+
+
+
+}
